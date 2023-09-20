@@ -37,8 +37,8 @@ public class ObiWan extends Application {
 		
 		ventanaPrincipal = new Scene(contenedor, 400, 300);
 		
-//	    String url = getClass().getResource("/css/botones.css").toString();
-//	    ventanaPrincipal.getStylesheets().add(url);
+	    String url = getClass().getResource("/css/botones.css").toString();
+	    ventanaPrincipal.getStylesheets().add(url);
 	
 		stage.setResizable(false);
 		stage.setScene(ventanaPrincipal);
