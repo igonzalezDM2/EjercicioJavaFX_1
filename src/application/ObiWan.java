@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class ObiWan extends Application {
@@ -35,6 +36,11 @@ public class ObiWan extends Application {
 		contenedor.getChildren().addAll(tfNombre, btnCerrar);
 		
 		ventanaPrincipal = new Scene(contenedor, 400, 300);
+		
+//	    String url = getClass().getResource("/css/botones.css").toString();
+//	    ventanaPrincipal.getStylesheets().add(url);
+	
+		stage.setResizable(false);
 		stage.setScene(ventanaPrincipal);
 		stage.setTitle("ObiWan");
 		stage.show();
@@ -50,7 +56,10 @@ public class ObiWan extends Application {
 			Label mensaje = new Label("¡General Kenobi!");
 			contenedorDeNombre.getChildren().add(mensaje);
 			Scene scene = new Scene(contenedorDeNombre, 200, 200);
+			mensaje.setFont(new Font(20));
+			nuevoStage.setResizable(false);
 			nuevoStage.setScene(scene);
+			nuevoStage.setTitle("Hola Obi Wan");
 			nuevoStage.show();
 		}
 		
