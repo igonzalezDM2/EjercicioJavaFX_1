@@ -14,6 +14,8 @@ public class ObiWan extends Application {
 	private TextField tfNombre;
 	private Stage stage;
 	private Scene ventanaPrincipal;
+	private Label lblBienvenida;
+	
     public static void main(String[] args) {
         Application.launch(args);
     }
@@ -29,11 +31,13 @@ public class ObiWan extends Application {
 		tfNombre.textProperty().addListener((observable, oldValue, newValue) -> comprobarNombre());
 		tfNombre.setOnInputMethodTextChanged((event) -> comprobarNombre());
 		
+		lblBienvenida = new Label();
+		
 		//Botón cerrar
 		Button btnCerrar = new Button("Cerrar");
 		btnCerrar.setOnAction((event) -> Platform.exit());
 		
-		contenedor.getChildren().addAll(tfNombre, btnCerrar);
+		contenedor.getChildren().addAll(tfNombre, btnCerrar, lblBienvenida);
 		
 		ventanaPrincipal = new Scene(contenedor, 400, 300);
 		
@@ -51,7 +55,9 @@ public class ObiWan extends Application {
 	private void comprobarNombre() {
 		Stage nuevoStage = new Stage();
 		String nombreIntroducido = tfNombre.getText();
-		if (nombreIntroducido != null && nombreIntroducido.equalsIgnoreCase("OBI WAN")) {
+		
+		if (nombreIntroducido != null && nombreIntroducido.equalsIgnoreCase("OBI WAN")) {			
+			lblBienvenida.setText("");
 			VBox contenedorDeNombre = new VBox();
 			Label mensaje = new Label("¡General Kenobi!");
 			contenedorDeNombre.getChildren().add(mensaje);
@@ -61,6 +67,8 @@ public class ObiWan extends Application {
 			nuevoStage.setScene(scene);
 			nuevoStage.setTitle("Hola Obi Wan");
 			nuevoStage.show();
+		} else {
+			lblBienvenida.setText("Bienvenido, " + nombreIntroducido);
 		}
 		
 		
